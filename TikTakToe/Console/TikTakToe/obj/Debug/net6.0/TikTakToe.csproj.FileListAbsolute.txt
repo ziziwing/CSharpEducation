@@ -1,0 +1,15 @@
+D:\Progus\git\CSharpEducation\TikTakToe\Console\TikTakToe\bin\Debug\net6.0\TikTakToe.exe
+D:\Progus\git\CSharpEducation\TikTakToe\Console\TikTakToe\bin\Debug\net6.0\TikTakToe.deps.json
+D:\Progus\git\CSharpEducation\TikTakToe\Console\TikTakToe\bin\Debug\net6.0\TikTakToe.runtimeconfig.json
+D:\Progus\git\CSharpEducation\TikTakToe\Console\TikTakToe\bin\Debug\net6.0\TikTakToe.dll
+D:\Progus\git\CSharpEducation\TikTakToe\Console\TikTakToe\bin\Debug\net6.0\TikTakToe.pdb
+D:\Progus\git\CSharpEducation\TikTakToe\Console\TikTakToe\obj\Debug\net6.0\TikTakToe.csproj.AssemblyReference.cache
+D:\Progus\git\CSharpEducation\TikTakToe\Console\TikTakToe\obj\Debug\net6.0\TikTakToe.GeneratedMSBuildEditorConfig.editorconfig
+D:\Progus\git\CSharpEducation\TikTakToe\Console\TikTakToe\obj\Debug\net6.0\TikTakToe.AssemblyInfoInputs.cache
+D:\Progus\git\CSharpEducation\TikTakToe\Console\TikTakToe\obj\Debug\net6.0\TikTakToe.AssemblyInfo.cs
+D:\Progus\git\CSharpEducation\TikTakToe\Console\TikTakToe\obj\Debug\net6.0\TikTakToe.csproj.CoreCompileInputs.cache
+D:\Progus\git\CSharpEducation\TikTakToe\Console\TikTakToe\obj\Debug\net6.0\TikTakToe.dll
+D:\Progus\git\CSharpEducation\TikTakToe\Console\TikTakToe\obj\Debug\net6.0\refint\TikTakToe.dll
+D:\Progus\git\CSharpEducation\TikTakToe\Console\TikTakToe\obj\Debug\net6.0\TikTakToe.pdb
+D:\Progus\git\CSharpEducation\TikTakToe\Console\TikTakToe\obj\Debug\net6.0\TikTakToe.genruntimeconfig.cache
+D:\Progus\git\CSharpEducation\TikTakToe\Console\TikTakToe\obj\Debug\net6.0\ref\TikTakToe.dll
