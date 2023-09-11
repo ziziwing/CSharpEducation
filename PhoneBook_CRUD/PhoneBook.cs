@@ -9,8 +9,8 @@ namespace PhoneBook_CRUD
 {
     internal class PhoneBook
     {
-        private Person personName;
-        private PhoneNumber personNumber;
+        private string personName;
+        private string personNumber;
 
         public PhoneBook(string name, string number) 
         {

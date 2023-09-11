@@ -1,0 +1,15 @@
+D:\Progus\git\CSharpEducation\PhoneBook_CRUD\bin\Debug\net6.0\PhoneBook_CRUD.exe
+D:\Progus\git\CSharpEducation\PhoneBook_CRUD\bin\Debug\net6.0\PhoneBook_CRUD.deps.json
+D:\Progus\git\CSharpEducation\PhoneBook_CRUD\bin\Debug\net6.0\PhoneBook_CRUD.runtimeconfig.json
+D:\Progus\git\CSharpEducation\PhoneBook_CRUD\bin\Debug\net6.0\PhoneBook_CRUD.dll
+D:\Progus\git\CSharpEducation\PhoneBook_CRUD\bin\Debug\net6.0\PhoneBook_CRUD.pdb
+D:\Progus\git\CSharpEducation\PhoneBook_CRUD\obj\Debug\net6.0\PhoneBook_CRUD.csproj.AssemblyReference.cache
+D:\Progus\git\CSharpEducation\PhoneBook_CRUD\obj\Debug\net6.0\PhoneBook_CRUD.GeneratedMSBuildEditorConfig.editorconfig
+D:\Progus\git\CSharpEducation\PhoneBook_CRUD\obj\Debug\net6.0\PhoneBook_CRUD.AssemblyInfoInputs.cache
+D:\Progus\git\CSharpEducation\PhoneBook_CRUD\obj\Debug\net6.0\PhoneBook_CRUD.AssemblyInfo.cs
+D:\Progus\git\CSharpEducation\PhoneBook_CRUD\obj\Debug\net6.0\PhoneBook_CRUD.csproj.CoreCompileInputs.cache
+D:\Progus\git\CSharpEducation\PhoneBook_CRUD\obj\Debug\net6.0\PhoneBook_CRUD.dll
+D:\Progus\git\CSharpEducation\PhoneBook_CRUD\obj\Debug\net6.0\refint\PhoneBook_CRUD.dll
+D:\Progus\git\CSharpEducation\PhoneBook_CRUD\obj\Debug\net6.0\PhoneBook_CRUD.pdb
+D:\Progus\git\CSharpEducation\PhoneBook_CRUD\obj\Debug\net6.0\PhoneBook_CRUD.genruntimeconfig.cache
+D:\Progus\git\CSharpEducation\PhoneBook_CRUD\obj\Debug\net6.0\ref\PhoneBook_CRUD.dll

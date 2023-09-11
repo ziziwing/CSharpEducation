@@ -11,24 +11,16 @@ namespace PhoneBook_CRUD
         public void phoneNew() 
         {
             Console.Clear();
-            Console.Write("Введите имя абонента");
-           
-            var name = Console.ReadLine();
-            if (name == null || name.Length == 0)
-            {
-                name = name = "Безымянный";
-            }
+            Console.Write("Введите имя абонента");         
+            var readLine = Console.ReadLine();
+            var name = string.IsNullOrEmpty(readLine) ? readLine : "Безымянный";
             
             Console.Write("Введите номер абонента");
-            var number = Console.ReadLine();
-            if (number == null || number.Length == 0)
-            {
-                number = "0123456789";
-            }
+            readLine = Console.ReadLine();
+            var number = string.IsNullOrEmpty(readLine) ? readLine : "0123456789";
 
             PhoneBook entry = new PhoneBook(name, number);
             entry.WriteNew(entry);
-
         }
         public void phoneDelete()
         {
