@@ -1,2 +1,10 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿namespace PhoneBook_CRUD
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+
+        }
+    }
+}

@@ -8,22 +8,6 @@ namespace PhoneBook_CRUD
 {
     internal class Person
     {
-        private string name = "Безымянный";
-        
-        public string Name 
-        { 
-            get
-            {
-
-                return name;
-
-            }
-            set 
-            {
-
-                name = value;
-
-            }
-        }
+        public string Name {  get; set; }
     }
 }
