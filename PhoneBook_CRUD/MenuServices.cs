@@ -9,7 +9,14 @@ namespace PhoneBook_CRUD
     internal class MenuServices
     {
         public void phoneNew() 
-        { 
+        {
+            Console.Clear();
+            Console.Write("Введите имя абонента");
+            string name = Console.ReadLine();
+            Console.Write("Введите номер абонента");
+            string number = Console.ReadLine();
+
+            PhoneBook entry = new PhoneBook(name, number);
 
         }
         public void phoneDelete()

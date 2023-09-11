@@ -8,8 +8,6 @@ namespace PhoneBook_CRUD
         {
             Menu menu = new Menu();
             menu.GetMenu();
-
-
         }
     }
 }

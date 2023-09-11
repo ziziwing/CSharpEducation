@@ -8,6 +8,11 @@ namespace PhoneBook_CRUD
 {
     internal class PhoneNumber
     {
-        public string Number { get; set; }
+        private string number = "0123456789";
+        public string Number 
+        {
+            get { return number; }
+            set { number = value; }
+        }
     }
 }
