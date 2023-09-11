@@ -12,7 +12,7 @@ namespace PhoneBook_CRUD
         private Person personName;
         private PhoneNumber personNumber;
 
-        public PhoneBook(Person name, PhoneNumber number) 
+        public PhoneBook(string name, string number) 
         {
             this.personName = name;
             this.personNumber = number;

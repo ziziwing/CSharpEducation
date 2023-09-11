@@ -12,11 +12,22 @@ namespace PhoneBook_CRUD
         {
             Console.Clear();
             Console.Write("Введите имя абонента");
-            string name = Console.ReadLine();
+           
+            var name = Console.ReadLine();
+            if (name == null || name.Length == 0)
+            {
+                name = name = "Безымянный";
+            }
+            
             Console.Write("Введите номер абонента");
-            string number = Console.ReadLine();
+            var number = Console.ReadLine();
+            if (number == null || number.Length == 0)
+            {
+                number = "0123456789";
+            }
 
             PhoneBook entry = new PhoneBook(name, number);
+            entry.WriteNew(entry);
 
         }
         public void phoneDelete()

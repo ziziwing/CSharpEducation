@@ -6,13 +6,9 @@ using System.Threading.Tasks;
 
 namespace PhoneBook_CRUD
 {
-    internal class PhoneNumber
+    interface INumber : IPerson
     {
-        private string number = "0123456789";
-        public string Number 
-        {
-            get { return number; }
-            set { number = value; }
-        }
+        string Number { get; set; }
+
     }
 }
