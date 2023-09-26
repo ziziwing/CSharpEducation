@@ -1,0 +1,10 @@
+D:\CSharpEdu\CSharpEducation\ProjectManager\ProjectManager\bin\Debug\ProjectManager.exe.config
+D:\CSharpEdu\CSharpEducation\ProjectManager\ProjectManager\bin\Debug\ProjectManager.exe
+D:\CSharpEdu\CSharpEducation\ProjectManager\ProjectManager\bin\Debug\ProjectManager.pdb
+D:\CSharpEdu\CSharpEducation\ProjectManager\ProjectManager\obj\Debug\ProjectManager.csproj.AssemblyReference.cache
+D:\CSharpEdu\CSharpEducation\ProjectManager\ProjectManager\obj\Debug\ProjectManager.MainForm.resources
+D:\CSharpEdu\CSharpEducation\ProjectManager\ProjectManager\obj\Debug\ProjectManager.Properties.Resources.resources
+D:\CSharpEdu\CSharpEducation\ProjectManager\ProjectManager\obj\Debug\ProjectManager.csproj.GenerateResource.cache
+D:\CSharpEdu\CSharpEducation\ProjectManager\ProjectManager\obj\Debug\ProjectManager.csproj.CoreCompileInputs.cache
+D:\CSharpEdu\CSharpEducation\ProjectManager\ProjectManager\obj\Debug\ProjectManager.exe
+D:\CSharpEdu\CSharpEducation\ProjectManager\ProjectManager\obj\Debug\ProjectManager.pdb
