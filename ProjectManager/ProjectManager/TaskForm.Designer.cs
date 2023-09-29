@@ -91,7 +91,6 @@
             this.label8.Size = new System.Drawing.Size(77, 13);
             this.label8.TabIndex = 9;
             this.label8.Text = "Комментарий";
-            this.label8.Click += new System.EventHandler(this.label5_Click);
             // 
             // label7
             // 
@@ -101,7 +100,6 @@
             this.label7.Size = new System.Drawing.Size(86, 13);
             this.label7.TabIndex = 9;
             this.label7.Text = "Ответственный";
-            this.label7.Click += new System.EventHandler(this.label5_Click);
             // 
             // label6
             // 
@@ -111,7 +109,6 @@
             this.label6.Size = new System.Drawing.Size(61, 13);
             this.label6.TabIndex = 9;
             this.label6.Text = "Приоритет";
-            this.label6.Click += new System.EventHandler(this.label5_Click);
             // 
             // label5
             // 
@@ -121,7 +118,6 @@
             this.label5.Size = new System.Drawing.Size(79, 13);
             this.label5.TabIndex = 9;
             this.label5.Text = "Трудозатраты";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // textComment
             // 
@@ -193,7 +189,6 @@
             this.label2.Size = new System.Drawing.Size(83, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Наименование";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // textName
             // 

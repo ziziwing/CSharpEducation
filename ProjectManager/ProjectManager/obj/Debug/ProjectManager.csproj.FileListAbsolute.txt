@@ -28,3 +28,13 @@ D:\Progus\git\CSharpEducation\ProjectManager\ProjectManager\bin\Debug\System.Buf
 D:\Progus\git\CSharpEducation\ProjectManager\ProjectManager\bin\Debug\MySql.Data.xml
 D:\Progus\git\CSharpEducation\ProjectManager\ProjectManager\obj\Debug\ProjectManager.ResponcibleForm.resources
 D:\Progus\git\CSharpEducation\ProjectManager\ProjectManager\obj\Debug\ProjectManager.csproj.CopyComplete
+D:\CSharpEdu\CSharpEducation\ProjectManager\ProjectManager\obj\Debug\ProjectManager.ResponcibleForm.resources
+D:\CSharpEdu\CSharpEducation\ProjectManager\ProjectManager\obj\Debug\ProjectManager.TaskForm.resources
+D:\CSharpEdu\CSharpEducation\ProjectManager\ProjectManager\bin\Debug\MySql.Data.dll
+D:\CSharpEdu\CSharpEducation\ProjectManager\ProjectManager\bin\Debug\System.Memory.dll
+D:\CSharpEdu\CSharpEducation\ProjectManager\ProjectManager\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\CSharpEdu\CSharpEducation\ProjectManager\ProjectManager\bin\Debug\System.Numerics.Vectors.dll
+D:\CSharpEdu\CSharpEducation\ProjectManager\ProjectManager\bin\Debug\System.Buffers.dll
+D:\CSharpEdu\CSharpEducation\ProjectManager\ProjectManager\bin\Debug\MySql.Data.xml
+D:\CSharpEdu\CSharpEducation\ProjectManager\ProjectManager\obj\Debug\ProjectManager.csproj.CopyComplete
+D:\CSharpEdu\CSharpEducation\ProjectManager\ProjectManager\obj\Debug\ProjectManager.TileTask.resources

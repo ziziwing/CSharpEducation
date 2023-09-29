@@ -42,8 +42,9 @@ namespace ProjectManager
             
             MySqlDataAdapter adapter = new MySqlDataAdapter();
 
-            MySqlCommand command = new MySqlCommand("INSERT INTO `responsible` (name) VALUES (@name)", db.getConnection());
+            MySqlCommand command = new MySqlCommand("INSERT INTO `responsible` (name, contact) VALUES (@name, @contact)", db.getConnection());
             command.Parameters.Add("@name", MySqlDbType.VarChar).Value = textResponcible.Text;
+            command.Parameters.Add("@contact", MySqlDbType.VarChar).Value = textContact.Text;
 
             db.openConnection();
 

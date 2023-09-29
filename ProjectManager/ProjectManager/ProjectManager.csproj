@@ -80,11 +80,19 @@
     <Compile Include="ResponcibleForm.Designer.cs">
       <DependentUpon>ResponcibleForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Responsible.cs" />
+    <Compile Include="Task.cs" />
     <Compile Include="TaskForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TaskForm.Designer.cs">
       <DependentUpon>TaskForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TileTask.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TileTask.Designer.cs">
+      <DependentUpon>TileTask.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -103,6 +111,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TaskForm.resx">
       <DependentUpon>TaskForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TileTask.resx">
+      <DependentUpon>TileTask.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

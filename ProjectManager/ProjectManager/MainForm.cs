@@ -13,6 +13,14 @@ namespace ProjectManager
 {
     public partial class MainForm : Form
     {
+        private void CreateTaskControl()
+        {
+            UserControl TilePanel = new UserControl();
+            TilePanel.Controls.Add(TilePanel);
+            TilePanel.CreateControl();
+
+            TilePanel.Show();
+        }
         private void ViewTasks()
         {
             DataBase db = new DataBase();
@@ -29,13 +37,21 @@ namespace ProjectManager
 
             while (data.Read())
             {
-                var item = listTasks.Items.Add(data[0].ToString());
-                item.Name = data[1].ToString();
-                item.SubItems.Add(data[2].ToString());
-                item.SubItems.Add(data[3].ToString());
-                item.SubItems.Add(data[4].ToString());
-                item.SubItems.Add(data[5].ToString());
-                item.SubItems.Add(data[6].ToString());
+                TileTask tileTask= new TileTask()
+                {
+                    Name = data.GetValue(1).ToString(),
+                    Tag = data.GetValue(1),
+                    Parent = flowPanel
+                };
+
+                Task task = new Task();
+                task.Id = (int)Convert.ToInt64(data.GetValue(0));
+                task.Name = data.GetValue(1).ToString();
+                task.Description = data.GetValue(2).ToString(); ;
+                task.Deadline = (int)Convert.ToInt64(data.GetValue(4));
+                task.Responsible = new Responsible(100, "Bad Boy", "ugly@bad.com");
+
+                Name = task.Name;
             }
 
             db.closeConnection();
