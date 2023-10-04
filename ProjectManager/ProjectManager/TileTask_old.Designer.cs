@@ -1,6 +1,6 @@
 ﻿namespace ProjectManager
 {
-    partial class TileTask
+    partial class TileTask_old
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -33,7 +33,7 @@
             this.listStatus = new System.Windows.Forms.ListBox();
             this.labelName = new System.Windows.Forms.Label();
             this.labelDiscription = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.labelResponsible = new System.Windows.Forms.Label();
             this.labelDeadline = new System.Windows.Forms.Label();
             this.listPriority = new System.Windows.Forms.ListBox();
             this.listResponsible = new System.Windows.Forms.ListBox();
@@ -42,6 +42,7 @@
             // 
             // tableUC
             // 
+            this.tableUC.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
             this.tableUC.ColumnCount = 2;
             this.tableUC.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableUC.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -49,7 +50,7 @@
             this.tableUC.Controls.Add(this.listStatus, 1, 0);
             this.tableUC.Controls.Add(this.labelName, 0, 1);
             this.tableUC.Controls.Add(this.labelDiscription, 0, 2);
-            this.tableUC.Controls.Add(this.label4, 0, 3);
+            this.tableUC.Controls.Add(this.labelResponsible, 0, 3);
             this.tableUC.Controls.Add(this.labelDeadline, 0, 4);
             this.tableUC.Controls.Add(this.listPriority, 1, 4);
             this.tableUC.Controls.Add(this.listResponsible, 1, 3);
@@ -70,7 +71,7 @@
             // 
             this.labelID.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelID.AutoSize = true;
-            this.labelID.Location = new System.Drawing.Point(3, 19);
+            this.labelID.Location = new System.Drawing.Point(5, 20);
             this.labelID.Name = "labelID";
             this.labelID.Size = new System.Drawing.Size(15, 13);
             this.labelID.TabIndex = 0;
@@ -81,16 +82,16 @@
             this.listStatus.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.listStatus.BackColor = System.Drawing.SystemColors.Control;
             this.listStatus.FormattingEnabled = true;
-            this.listStatus.Location = new System.Drawing.Point(120, 4);
+            this.listStatus.Location = new System.Drawing.Point(121, 18);
             this.listStatus.Name = "listStatus";
-            this.listStatus.Size = new System.Drawing.Size(111, 43);
+            this.listStatus.Size = new System.Drawing.Size(108, 17);
             this.listStatus.TabIndex = 1;
             // 
             // labelName
             // 
             this.labelName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(3, 71);
+            this.labelName.Location = new System.Drawing.Point(5, 72);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(33, 13);
             this.labelName.TabIndex = 0;
@@ -100,28 +101,28 @@
             // 
             this.labelDiscription.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelDiscription.AutoSize = true;
-            this.labelDiscription.Location = new System.Drawing.Point(3, 123);
+            this.labelDiscription.Location = new System.Drawing.Point(5, 124);
             this.labelDiscription.Name = "labelDiscription";
             this.labelDiscription.Size = new System.Drawing.Size(54, 13);
             this.labelDiscription.TabIndex = 0;
             this.labelDiscription.Text = "discription";
             // 
-            // label4
+            // labelResponsible
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 175);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 13);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "responcible";
+            this.labelResponsible.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.labelResponsible.AutoSize = true;
+            this.labelResponsible.Location = new System.Drawing.Point(5, 176);
+            this.labelResponsible.Name = "labelResponsible";
+            this.labelResponsible.Size = new System.Drawing.Size(61, 13);
+            this.labelResponsible.TabIndex = 0;
+            this.labelResponsible.Text = "responcible";
             // 
             // labelDeadline
             // 
             this.labelDeadline.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelDeadline.AutoSize = true;
             this.labelDeadline.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.labelDeadline.Location = new System.Drawing.Point(3, 228);
+            this.labelDeadline.Location = new System.Drawing.Point(5, 228);
             this.labelDeadline.Name = "labelDeadline";
             this.labelDeadline.Size = new System.Drawing.Size(47, 13);
             this.labelDeadline.TabIndex = 0;
@@ -133,18 +134,19 @@
             this.listPriority.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.listPriority.BackColor = System.Drawing.SystemColors.Control;
             this.listPriority.FormattingEnabled = true;
-            this.listPriority.Location = new System.Drawing.Point(120, 213);
+            this.listPriority.Location = new System.Drawing.Point(121, 226);
             this.listPriority.Name = "listPriority";
-            this.listPriority.Size = new System.Drawing.Size(111, 43);
+            this.listPriority.Size = new System.Drawing.Size(108, 17);
             this.listPriority.TabIndex = 2;
             // 
             // listResponsible
             // 
+            this.listResponsible.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.listResponsible.BackColor = System.Drawing.SystemColors.Control;
             this.listResponsible.FormattingEnabled = true;
-            this.listResponsible.Location = new System.Drawing.Point(120, 159);
+            this.listResponsible.Location = new System.Drawing.Point(121, 174);
             this.listResponsible.Name = "listResponsible";
-            this.listResponsible.Size = new System.Drawing.Size(111, 43);
+            this.listResponsible.Size = new System.Drawing.Size(108, 17);
             this.listResponsible.TabIndex = 3;
             // 
             // TileTask
@@ -164,7 +166,7 @@
         private System.Windows.Forms.Label labelID;
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.Label labelDiscription;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelResponsible;
         private System.Windows.Forms.Label labelDeadline;
         private System.Windows.Forms.ListBox listStatus;
         private System.Windows.Forms.ListBox listPriority;

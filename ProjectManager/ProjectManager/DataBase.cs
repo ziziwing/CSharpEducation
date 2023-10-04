@@ -31,5 +31,28 @@ namespace ProjectManager
         {
             return connection;
         }
+        /*public MySqlDataReader GetAllResponsible()
+         {
+             DataBase db = new DataBase();
+             db.openConnection();
+
+             MySqlCommand command = new MySqlCommand("SELECT * FROM `responsible`", db.getConnection());
+
+             var data = command.ExecuteReader();
+
+             return data;
+         }
+         public MySqlDataReader GetAllTasks()
+         {
+             DataBase db = new DataBase();
+
+             db.openConnection();
+
+             MySqlCommand command = new MySqlCommand("SELECT * FROM `taskDB`", db.getConnection());
+
+             db.closeConnection();
+
+             return command.ExecuteReader();
+         }*/
     }
 }

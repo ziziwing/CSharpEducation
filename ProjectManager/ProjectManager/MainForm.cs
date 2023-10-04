@@ -24,8 +24,6 @@ namespace ProjectManager
         private void ViewTasks()
         {
             DataBase db = new DataBase();
-            DataTable table = new DataTable();
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
 
             db.openConnection();
 
@@ -37,21 +35,20 @@ namespace ProjectManager
 
             while (data.Read())
             {
-                TileTask tileTask= new TileTask()
+                TileTaks tileTask= new TileTaks()
                 {
                     Name = data.GetValue(1).ToString(),
                     Tag = data.GetValue(1),
                     Parent = flowPanel
                 };
 
-                Task task = new Task();
-                task.Id = (int)Convert.ToInt64(data.GetValue(0));
-                task.Name = data.GetValue(1).ToString();
-                task.Description = data.GetValue(2).ToString(); ;
-                task.Deadline = (int)Convert.ToInt64(data.GetValue(4));
-                task.Responsible = new Responsible(100, "Bad Boy", "ugly@bad.com");
-
-                Name = task.Name;
+                tileTask.setID((int)Convert.ToInt64(data.GetValue(0)));
+                tileTask.setName(data.GetValue(1).ToString());
+                tileTask.setDiscription(data.GetValue(2).ToString());
+                tileTask.setDeadline((int)Convert.ToInt64(data.GetValue(4)));
+                tileTask.setResponcible(data.GetValue(6).ToString());
+                tileTask.setStatus(data.GetValue(3).ToString());
+                tileTask.setPriority(data.GetValue(5).ToString()); 
             }
 
             db.closeConnection();
@@ -67,6 +64,7 @@ namespace ProjectManager
         {
             TaskForm openForm = new TaskForm();
             openForm.Show();
+            ViewTasks();
         }
 
         private void AddResponsible_Click(object sender, EventArgs e)

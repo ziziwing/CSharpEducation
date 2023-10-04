@@ -72,9 +72,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowPanel.AutoScroll = true;
+            this.flowPanel.BackColor = System.Drawing.SystemColors.Control;
             this.flowPanel.Location = new System.Drawing.Point(15, 80);
             this.flowPanel.Name = "flowPanel";
-            this.flowPanel.Size = new System.Drawing.Size(861, 369);
+            this.flowPanel.Size = new System.Drawing.Size(920, 410);
             this.flowPanel.TabIndex = 1;
             // 
             // MainForm
@@ -83,7 +84,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.ClientSize = new System.Drawing.Size(892, 465);
+            this.ClientSize = new System.Drawing.Size(1003, 507);
             this.Controls.Add(this.flowPanel);
             this.Controls.Add(this.AddResponsible);
             this.Controls.Add(this.Newtask);
