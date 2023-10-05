@@ -42,10 +42,10 @@ namespace ProjectManager
                     Parent = flowPanel
                 };
 
-                tileTask.setID((int)Convert.ToInt64(data.GetValue(0)));
+                //tileTask.setID((int)Convert.ToInt64(data.GetValue(0)));
                 tileTask.setName(data.GetValue(1).ToString());
-                tileTask.setDiscription(data.GetValue(2).ToString());
-                tileTask.setDeadline((int)Convert.ToInt64(data.GetValue(4)));
+                //tileTask.setDiscription(data.GetValue(2).ToString());
+                //tileTask.setDeadline((int)Convert.ToInt64(data.GetValue(4)));
                 tileTask.setResponcible(data.GetValue(6).ToString());
                 tileTask.setStatus(data.GetValue(3).ToString());
                 tileTask.setPriority(data.GetValue(5).ToString()); 
@@ -57,7 +57,6 @@ namespace ProjectManager
         public MainForm()
         {
             InitializeComponent();
-            ViewTasks();
         }
 
         private void Newtask_Click(object sender, EventArgs e)

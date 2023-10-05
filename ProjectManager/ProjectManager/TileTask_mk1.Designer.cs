@@ -1,6 +1,6 @@
 ﻿namespace ProjectManager
 {
-    partial class TileTask_old
+    partial class TileTask_mk1
     {
         /// <summary> 
         /// Обязательная переменная конструктора.

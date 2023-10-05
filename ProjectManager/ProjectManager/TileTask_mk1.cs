@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ProjectManager
 {
-    public partial class TileTask_old : UserControl
+    public partial class TileTask_mk1 : UserControl
     {
-        public TileTask_old()
+        public TileTask_mk1()
         {
             InitializeComponent();
         }
