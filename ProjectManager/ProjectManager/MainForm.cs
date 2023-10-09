@@ -13,6 +13,18 @@ namespace ProjectManager
 {
     public partial class MainForm : Form
     {
+        #region Создание формы
+        /// <summary>
+        /// Инициализирует основную форму.
+        /// </summary>
+        public MainForm()
+        {
+            InitializeComponent();
+            ViewTasks();
+        }
+        /// <summary>
+        /// Добавляет контрол на основную форму.
+        /// </summary>
         private void CreateTaskControl()
         {
             UserControl TilePanel = new UserControl();
@@ -21,55 +33,61 @@ namespace ProjectManager
 
             TilePanel.Show();
         }
-        private void ViewTasks()
+
+        #endregion
+
+        #region Служебные методы
+        /// <summary>
+        /// Показывает все созданные задачи на форме в виде плитки.
+        /// </summary>
+        internal void ViewTasks()
         {
+            flowPanel.Controls.Clear();
+
             DataBase db = new DataBase();
+            db.openConnection();   
 
-            db.openConnection();
-
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `taskDB` ", db.getConnection());
-
-            MySqlDataReader data;
-            
-            data = command.ExecuteReader();
+            var data = db.GetAllTasks();
 
             while (data.Read())
             {
-                TileTaks tileTask= new TileTaks()
+                TileTask tileTask = new TileTask()
                 {
+                    Tag = data.GetValue(0).ToString(),
                     Name = data.GetValue(1).ToString(),
-                    Tag = data.GetValue(1),
                     Parent = flowPanel
                 };
 
-                //tileTask.setID((int)Convert.ToInt64(data.GetValue(0)));
                 tileTask.setName(data.GetValue(1).ToString());
-                //tileTask.setDiscription(data.GetValue(2).ToString());
-                //tileTask.setDeadline((int)Convert.ToInt64(data.GetValue(4)));
-                tileTask.setResponcible(data.GetValue(6).ToString());
-                tileTask.setStatus(data.GetValue(3).ToString());
-                tileTask.setPriority(data.GetValue(5).ToString()); 
+                tileTask.setStatus(data.GetValue(2).ToString());
+                tileTask.setPriority(data.GetValue(3).ToString());
+                tileTask.setResponcible(data.GetValue(4).ToString());
             }
-
             db.closeConnection();
         }
+        #endregion
 
-        public MainForm()
-        {
-            InitializeComponent();
-        }
-
+        #region Событие формы
+        /// <summary>
+        /// Событие: создание новой задачи.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Newtask_Click(object sender, EventArgs e)
         {
             TaskForm openForm = new TaskForm();
             openForm.Show();
-            ViewTasks();
         }
-
+        /// <summary>
+        /// Cобытие: создание нового ответственного.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddResponsible_Click(object sender, EventArgs e)
         {
             ResponcibleForm responcibleForm = new ResponcibleForm();
             responcibleForm.Show();
         }
+        #endregion
     }
 }

@@ -14,10 +14,14 @@ namespace ProjectManager
 {
     public partial class TileTask : UserControl
     {
+       /// <summary>
+       /// Инициализация объекта.
+       /// </summary>
         public TileTask()
         {
             InitializeComponent();
         }
+        #region Инициализация полей формы.
         /// <summary>
         /// Устанавливает в плитку Задачи имя.
         /// </summary>
@@ -34,13 +38,30 @@ namespace ProjectManager
         {
            comboResponsible.SelectedValue = name;
         }
+        /// <summary>
+        /// Выбирает и устанавливает статус из списка статусов.
+        /// </summary>
+        /// <param name="status"></param>
         public void setStatus(string status)
         {
             comboStatus.SelectedText = status;
         }
+        /// <summary>
+        /// Выбирает и устанавливает приоритет из списка приоритетов.
+        /// </summary>
+        /// <param name="priority"></param>
         public void setPriority(string priority)
         {
             comboPriority.SelectedItem = priority;
         }
+        #endregion
+
+        #region Событие формы.
+        private void tableTile_Click(object sender, EventArgs e)
+        {
+            TaskForm taskForm = new TaskForm();
+            taskForm.Show();
+        }
+        #endregion
     }
 }

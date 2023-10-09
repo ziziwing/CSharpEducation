@@ -38,6 +38,4 @@ D:\CSharpEdu\CSharpEducation\ProjectManager\ProjectManager\bin\Debug\System.Buff
 D:\CSharpEdu\CSharpEducation\ProjectManager\ProjectManager\bin\Debug\MySql.Data.xml
 D:\CSharpEdu\CSharpEducation\ProjectManager\ProjectManager\obj\Debug\ProjectManager.csproj.CopyComplete
 D:\CSharpEdu\CSharpEducation\ProjectManager\ProjectManager\obj\Debug\ProjectManager.TileTask.resources
-D:\Progus\git\CSharpEducation\ProjectManager\ProjectManager\obj\Debug\ProjectManager.TileTaks.resources
 D:\Progus\git\CSharpEducation\ProjectManager\ProjectManager\obj\Debug\ProjectManager.TileTask.resources
-D:\Progus\git\CSharpEducation\ProjectManager\ProjectManager\obj\Debug\ProjectManager.TileTask_mk1.resources

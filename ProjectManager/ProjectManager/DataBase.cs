@@ -10,12 +10,14 @@ namespace ProjectManager
     internal class DataBase
     {
         MySqlConnection connection = new MySqlConnection(
-            "server=sql11.freemysqlhosting.net;" +
+            //"server=sql11.freemysqlhosting.net;" +
+            "server=db4free.net;" +
             "port=3306;" +
             "username=sql11649513;" +
             "password=tGeVZXBrfG;" +
-            "database=sql11649513;"
-            );
+            "database=sql11649513;" +
+            "charset=utf8mb4"
+        );
 
         public void openConnection()
         {
@@ -31,28 +33,17 @@ namespace ProjectManager
         {
             return connection;
         }
-        /*public MySqlDataReader GetAllResponsible()
-         {
-             DataBase db = new DataBase();
-             db.openConnection();
+        public MySqlDataReader GetAllResponsible()
+        {
+            MySqlCommand command = new MySqlCommand("SELECT * FROM `responsible`", connection);
 
-             MySqlCommand command = new MySqlCommand("SELECT * FROM `responsible`", db.getConnection());
-
-             var data = command.ExecuteReader();
-
-             return data;
-         }
+            return command.ExecuteReader();
+        }
          public MySqlDataReader GetAllTasks()
          {
-             DataBase db = new DataBase();
+            MySqlCommand command = new MySqlCommand("SELECT * FROM `taskDB`", connection);
 
-             db.openConnection();
-
-             MySqlCommand command = new MySqlCommand("SELECT * FROM `taskDB`", db.getConnection());
-
-             db.closeConnection();
-
-             return command.ExecuteReader();
-         }*/
+            return command.ExecuteReader();
+         }
     }
 }

@@ -39,12 +39,10 @@ namespace ProjectManager
         private void buttonSave_Click(object sender, EventArgs e)
         {
             DataBase db = new DataBase();
-            
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
 
             MySqlCommand command = new MySqlCommand("INSERT INTO `responsible` (name, contact) VALUES (@name, @contact)", db.getConnection());
-            command.Parameters.Add("@name", MySqlDbType.VarChar).Value = textResponcible.Text;
-            command.Parameters.Add("@contact", MySqlDbType.VarChar).Value = textContact.Text;
+            command.Parameters.AddWithValue("@name", textResponcible.Text);
+            command.Parameters.AddWithValue("@contact", textContact.Text);
 
             db.openConnection();
 
@@ -56,9 +54,6 @@ namespace ProjectManager
 
                 this.Close();
             }
-            
-
-            
         }
         public Boolean isNewResponcible()
         {

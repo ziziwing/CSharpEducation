@@ -13,17 +13,35 @@ namespace ProjectManager
 {
     public partial class TaskForm : Form
     {
-        internal Point lastPoint;
+
         public TaskForm()
         {
             InitializeComponent();
         }
 
+        #region События формы.
+
+        #region Перетаскивание таски мышью.
+
+        /// <summary>
+        /// Точка отсчета для координат.
+        /// </summary>
+        internal Point lastPoint;
+
+        /// <summary>
+        /// Событие: зажатие кнопки мыши.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
+        /// <summary>
+        /// Событие: движение мышью.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void panelTask_MouseMove(object sender, MouseEventArgs e)
         {
             if(e.Button == MouseButtons.Left)
@@ -32,12 +50,22 @@ namespace ProjectManager
                 this.Top += e.Y - lastPoint.Y;
             }
         }
-
+        /// <summary>
+        /// Событие: кнопка мыши отпущена.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void panelTask_MouseDown(object sender, MouseEventArgs e)
         {
             lastPoint = new Point(e.X, e.Y);
         }
+        #endregion
 
+        /// <summary>
+        /// Событие: нажатие кнопки Сохранить.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonSave_Click(object sender, EventArgs e)
         {
             DataBase db = new DataBase();
@@ -66,8 +94,15 @@ namespace ProjectManager
             db.closeConnection();
 
             this.Close();
+            
+            MainForm mainForm = new MainForm();
+            mainForm.ViewTasks();
         }
-
+        /// <summary>
+        /// Событие: в поле Трудозатраты можно ввести только цифры, либо backspace.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textDeadline_KeyPress(object sender, KeyPressEventArgs e)
         {
             char number = e.KeyChar;
@@ -76,5 +111,6 @@ namespace ProjectManager
                 e.Handled = true;
             }
         }
+        #endregion
     }
 }
