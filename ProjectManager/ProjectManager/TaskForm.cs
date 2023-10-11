@@ -140,7 +140,7 @@ namespace ProjectManager
 
             while(data.Read())
             {
-                boxResponsible.Items.Add(data.GetValue(1));
+                boxResponsible.Items.Add(data.GetString("name"));
             }
 
             db.closeConnection();

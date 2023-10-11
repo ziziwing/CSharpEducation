@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableTile = new System.Windows.Forms.TableLayoutPanel();
             this.tableStatus = new System.Windows.Forms.TableLayoutPanel();
             this.labelStatus = new System.Windows.Forms.Label();
@@ -39,10 +40,12 @@
             this.labelResponsible = new System.Windows.Forms.Label();
             this.comboResponsible = new System.Windows.Forms.ComboBox();
             this.labelName = new System.Windows.Forms.Label();
+            this.dataBaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableTile.SuspendLayout();
             this.tableStatus.SuspendLayout();
             this.tablePriority.SuspendLayout();
             this.tableResponsible.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBaseBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tableTile
@@ -193,6 +196,10 @@
             this.labelName.TabIndex = 0;
             this.labelName.Text = "labelName";
             // 
+            // dataBaseBindingSource
+            // 
+            this.dataBaseBindingSource.DataSource = typeof(ProjectManager.DataBase);
+            // 
             // TileTask
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -209,6 +216,7 @@
             this.tablePriority.PerformLayout();
             this.tableResponsible.ResumeLayout(false);
             this.tableResponsible.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBaseBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -226,5 +234,6 @@
         private System.Windows.Forms.TableLayoutPanel tableResponsible;
         private System.Windows.Forms.Label labelResponsible;
         private System.Windows.Forms.ComboBox comboResponsible;
+        private System.Windows.Forms.BindingSource dataBaseBindingSource;
     }
 }

@@ -58,10 +58,10 @@ namespace ProjectManager
                     Parent = flowPanel
                 };
 
-                tileTask.setName(data.GetValue(1).ToString());
-                tileTask.setStatus(data.GetValue(2).ToString());
-                tileTask.setPriority(data.GetValue(3).ToString());
-                tileTask.setResponcible(data.GetValue(4).ToString());
+                tileTask.setName(data.GetString("name"));
+                tileTask.setStatus(data.GetString("status"));
+                tileTask.setPriority(data.GetString("priority"));
+                tileTask.setResponcible(data.GetString("responsible"));
             }
             db.closeConnection();
         }

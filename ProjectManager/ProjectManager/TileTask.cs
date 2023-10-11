@@ -20,6 +20,7 @@ namespace ProjectManager
         public TileTask()
         {
             InitializeComponent();
+            FillResponsible();
         }
         #region Инициализация полей формы.
         /// <summary>
@@ -36,7 +37,8 @@ namespace ProjectManager
         /// <param name="name"></param>
         public void setResponcible(string name)
         {
-           comboResponsible.SelectedValue = name;
+            var index = comboResponsible.FindString(name);
+            comboResponsible.SelectedIndex = index;
         }
         /// <summary>
         /// Выбирает и устанавливает статус из списка статусов.
@@ -44,7 +46,8 @@ namespace ProjectManager
         /// <param name="status"></param>
         public void setStatus(string status)
         {
-            comboStatus.SelectedText = status;
+            var index = comboStatus.FindString(status);
+            comboStatus.SelectedIndex = index;
         }
         /// <summary>
         /// Выбирает и устанавливает приоритет из списка приоритетов.
@@ -52,7 +55,24 @@ namespace ProjectManager
         /// <param name="priority"></param>
         public void setPriority(string priority)
         {
-            comboPriority.SelectedItem = priority;
+            var index = comboPriority.FindString(priority);
+            comboPriority.SelectedIndex = index;
+        }
+
+        private void FillResponsible()
+        {
+            DataBase db = new DataBase();
+
+            db.openConnection();
+
+            var data = db.GetAllResponsible();
+
+            while (data.Read())
+            {
+                comboResponsible.Items.Add(data.GetString("name"));
+            }
+
+            db.closeConnection();
         }
         #endregion
 
