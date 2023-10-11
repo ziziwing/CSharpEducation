@@ -60,7 +60,7 @@ namespace ProjectManager
         private void tableTile_Click(object sender, EventArgs e)
         {
             TaskForm taskForm = new TaskForm();
-            taskForm.Show();
+            taskForm.ViewTaskInfoByTile((int)Tag);
         }
         #endregion
     }

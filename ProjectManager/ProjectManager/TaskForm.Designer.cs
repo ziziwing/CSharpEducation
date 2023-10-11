@@ -29,16 +29,14 @@
         private void InitializeComponent()
         {
             this.panelTask = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
+            this.boxResponsible = new System.Windows.Forms.ComboBox();
+            this.boxPriority = new System.Windows.Forms.ComboBox();
+            this.boxStatus = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textComment = new System.Windows.Forms.TextBox();
-            this.textResponsible = new System.Windows.Forms.TextBox();
-            this.textPriority = new System.Windows.Forms.TextBox();
             this.textDeadline = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textStatus = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textDescription = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -49,23 +47,23 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.panelTask.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTask
             // 
             this.panelTask.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.panelTask.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelTask.Controls.Add(this.label8);
+            this.panelTask.Controls.Add(this.boxResponsible);
+            this.panelTask.Controls.Add(this.boxPriority);
+            this.panelTask.Controls.Add(this.boxStatus);
             this.panelTask.Controls.Add(this.label7);
             this.panelTask.Controls.Add(this.label6);
             this.panelTask.Controls.Add(this.label5);
-            this.panelTask.Controls.Add(this.textComment);
-            this.panelTask.Controls.Add(this.textResponsible);
-            this.panelTask.Controls.Add(this.textPriority);
             this.panelTask.Controls.Add(this.textDeadline);
             this.panelTask.Controls.Add(this.label4);
-            this.panelTask.Controls.Add(this.textStatus);
             this.panelTask.Controls.Add(this.label3);
             this.panelTask.Controls.Add(this.textDescription);
             this.panelTask.Controls.Add(this.label2);
@@ -78,24 +76,50 @@
             this.panelTask.Controls.Add(this.button1);
             this.panelTask.Location = new System.Drawing.Point(-2, 0);
             this.panelTask.Name = "panelTask";
-            this.panelTask.Size = new System.Drawing.Size(381, 546);
+            this.panelTask.Size = new System.Drawing.Size(381, 361);
             this.panelTask.TabIndex = 0;
             this.panelTask.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTask_MouseDown);
             this.panelTask.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelTask_MouseMove);
             // 
-            // label8
+            // boxResponsible
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(18, 231);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(77, 13);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "Комментарий";
+            this.boxResponsible.FormattingEnabled = true;
+            this.boxResponsible.Location = new System.Drawing.Point(106, 245);
+            this.boxResponsible.Name = "boxResponsible";
+            this.boxResponsible.Size = new System.Drawing.Size(257, 21);
+            this.boxResponsible.TabIndex = 12;
+            // 
+            // boxPriority
+            // 
+            this.boxPriority.FormattingEnabled = true;
+            this.boxPriority.Items.AddRange(new object[] {
+            "Критичный",
+            "Высокий",
+            "Средний",
+            "Низкий"});
+            this.boxPriority.Location = new System.Drawing.Point(106, 218);
+            this.boxPriority.Name = "boxPriority";
+            this.boxPriority.Size = new System.Drawing.Size(257, 21);
+            this.boxPriority.TabIndex = 11;
+            // 
+            // boxStatus
+            // 
+            this.boxStatus.FormattingEnabled = true;
+            this.boxStatus.Items.AddRange(new object[] {
+            "Ожидание",
+            "В работе",
+            "Рецензирование",
+            "Закрыто"});
+            this.boxStatus.Location = new System.Drawing.Point(106, 166);
+            this.boxStatus.Name = "boxStatus";
+            this.boxStatus.Size = new System.Drawing.Size(257, 21);
+            this.boxStatus.TabIndex = 10;
             // 
             // label7
             // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(17, 205);
+            this.label7.Location = new System.Drawing.Point(17, 248);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(86, 13);
             this.label7.TabIndex = 9;
@@ -104,7 +128,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(17, 179);
+            this.label6.Location = new System.Drawing.Point(17, 222);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(61, 13);
             this.label6.TabIndex = 9;
@@ -113,37 +137,15 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(17, 153);
+            this.label5.Location = new System.Drawing.Point(17, 196);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(79, 13);
             this.label5.TabIndex = 9;
             this.label5.Text = "Трудозатраты";
             // 
-            // textComment
-            // 
-            this.textComment.Location = new System.Drawing.Point(106, 228);
-            this.textComment.Multiline = true;
-            this.textComment.Name = "textComment";
-            this.textComment.Size = new System.Drawing.Size(257, 89);
-            this.textComment.TabIndex = 8;
-            // 
-            // textResponsible
-            // 
-            this.textResponsible.Location = new System.Drawing.Point(106, 202);
-            this.textResponsible.Name = "textResponsible";
-            this.textResponsible.Size = new System.Drawing.Size(257, 20);
-            this.textResponsible.TabIndex = 8;
-            // 
-            // textPriority
-            // 
-            this.textPriority.Location = new System.Drawing.Point(106, 176);
-            this.textPriority.Name = "textPriority";
-            this.textPriority.Size = new System.Drawing.Size(257, 20);
-            this.textPriority.TabIndex = 8;
-            // 
             // textDeadline
             // 
-            this.textDeadline.Location = new System.Drawing.Point(106, 150);
+            this.textDeadline.Location = new System.Drawing.Point(106, 193);
             this.textDeadline.Name = "textDeadline";
             this.textDeadline.Size = new System.Drawing.Size(257, 20);
             this.textDeadline.TabIndex = 8;
@@ -151,19 +153,13 @@
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(17, 127);
+            this.label4.Location = new System.Drawing.Point(17, 168);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 13);
             this.label4.TabIndex = 7;
             this.label4.Text = "Статус";
-            // 
-            // textStatus
-            // 
-            this.textStatus.Location = new System.Drawing.Point(106, 124);
-            this.textStatus.Name = "textStatus";
-            this.textStatus.Size = new System.Drawing.Size(257, 20);
-            this.textStatus.TabIndex = 6;
             // 
             // label3
             // 
@@ -177,8 +173,9 @@
             // textDescription
             // 
             this.textDescription.Location = new System.Drawing.Point(106, 98);
+            this.textDescription.Multiline = true;
             this.textDescription.Name = "textDescription";
-            this.textDescription.Size = new System.Drawing.Size(257, 20);
+            this.textDescription.Size = new System.Drawing.Size(257, 62);
             this.textDescription.TabIndex = 4;
             // 
             // label2
@@ -214,7 +211,7 @@
             this.buttonClose.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonClose.Location = new System.Drawing.Point(208, 500);
+            this.buttonClose.Location = new System.Drawing.Point(208, 301);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(155, 34);
             this.buttonClose.TabIndex = 0;
@@ -226,7 +223,7 @@
             // 
             this.button2.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(208, 500);
+            this.button2.Location = new System.Drawing.Point(208, 301);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(155, 34);
             this.button2.TabIndex = 0;
@@ -238,7 +235,7 @@
             this.buttonSave.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonSave.Location = new System.Drawing.Point(14, 500);
+            this.buttonSave.Location = new System.Drawing.Point(14, 301);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(155, 34);
             this.buttonSave.TabIndex = 0;
@@ -250,7 +247,7 @@
             // 
             this.button3.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(14, 500);
+            this.button3.Location = new System.Drawing.Point(14, 301);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(155, 34);
             this.button3.TabIndex = 0;
@@ -261,24 +258,30 @@
             // 
             this.button1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(14, 500);
+            this.button1.Location = new System.Drawing.Point(14, 301);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(155, 34);
             this.button1.TabIndex = 0;
             this.button1.Text = "Сохранить";
             this.button1.UseVisualStyleBackColor = false;
             // 
+            // fileSystemWatcher1
+            // 
+            this.fileSystemWatcher1.EnableRaisingEvents = true;
+            this.fileSystemWatcher1.SynchronizingObject = this;
+            // 
             // TaskForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(379, 546);
+            this.ClientSize = new System.Drawing.Size(379, 359);
             this.Controls.Add(this.panelTask);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TaskForm";
             this.Text = "TaskForm";
             this.panelTask.ResumeLayout(false);
             this.panelTask.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -297,14 +300,13 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textDeadline;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textStatus;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textDescription;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textComment;
-        private System.Windows.Forms.TextBox textResponsible;
-        private System.Windows.Forms.TextBox textPriority;
+        private System.Windows.Forms.ComboBox boxStatus;
+        private System.Windows.Forms.ComboBox boxPriority;
+        private System.IO.FileSystemWatcher fileSystemWatcher1;
+        private System.Windows.Forms.ComboBox boxResponsible;
     }
 }

@@ -17,6 +17,7 @@ namespace ProjectManager
         public TaskForm()
         {
             InitializeComponent();
+            FillResponsible();
         }
 
         #region События формы.
@@ -81,10 +82,10 @@ namespace ProjectManager
 
             command.Parameters.Add("@name", MySqlDbType.VarChar).Value = textName.Text;
             command.Parameters.Add("@description", MySqlDbType.VarChar).Value = textDescription.Text;
-            command.Parameters.Add("@status", MySqlDbType.VarChar).Value = textStatus.Text;
+            command.Parameters.Add("@status", MySqlDbType.VarChar).Value = boxStatus.SelectedItem;
             command.Parameters.Add("@deadline", MySqlDbType.Int32).Value = Int32.Parse(textDeadline.Text);
-            command.Parameters.Add("@priority", MySqlDbType.VarChar).Value = textPriority.Text;
-            command.Parameters.Add("@responsible", MySqlDbType.VarChar).Value = textResponsible.Text;
+            command.Parameters.Add("@priority", MySqlDbType.VarChar).Value = boxPriority.Text;
+            command.Parameters.Add("@responsible", MySqlDbType.VarChar).Value = boxResponsible.Text;
 
             db.openConnection();
 
@@ -112,5 +113,37 @@ namespace ProjectManager
             }
         }
         #endregion
+
+        /// <summary>
+        /// Открыть форму задачи из плитки.
+        /// </summary>
+        /// <param name="taskID"></param>
+        internal void ViewTaskInfoByTile(int taskID)
+        {
+            DataBase db = new DataBase();
+            var taskInfo = db.taksById(taskID);
+
+            TaskForm taskForm = new TaskForm();
+            taskForm.Show();
+        }
+
+        /// <summary>
+        /// Добавить ответственных для выбора.
+        /// </summary>
+        private void FillResponsible()
+        {
+            DataBase db = new DataBase();
+            
+            db.openConnection();
+
+            var data = db.GetAllResponsible();
+
+            while(data.Read())
+            {
+                boxResponsible.Items.Add(data.GetValue(1));
+            }
+
+            db.closeConnection();
+        }
     }
 }
