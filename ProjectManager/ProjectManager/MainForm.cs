@@ -43,7 +43,7 @@ namespace ProjectManager
         /// <summary>
         /// Показывает все созданные задачи на форме в виде плитки.
         /// </summary>
-        internal void ViewTasks()
+        public void ViewTasks()
         {
             flowPanel.Controls.Clear();
 
@@ -94,5 +94,10 @@ namespace ProjectManager
         }
 
         #endregion
+
+        public FlowLayoutPanel GetFlowPanel()
+        {
+            return flowPanel;
+        }
     }
 }

@@ -80,7 +80,6 @@
     <Compile Include="ResponcibleForm.Designer.cs">
       <DependentUpon>ResponcibleForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Responsible.cs" />
     <Compile Include="Task.cs" />
     <Compile Include="TaskForm.cs">
       <SubType>Form</SubType>

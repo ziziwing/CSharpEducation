@@ -9,13 +9,13 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 namespace ProjectManager
 {
     internal static class Task
-    {            
-        static public int Id { get; set; }
-        static public string Name { get; set; }
-        static public string Description { get; set; }
-        static public int Deadline { get; set; }
-        static public string Responsible { get; set; }
-        static public string Status { get; set; } 
-        static public string Priority { get; set; }
+    {
+        public static int Id { get; set; }
+        public static string Name { get; set; }
+        public static string Description { get; set; }
+        public static int Deadline { get; set; }
+        public static string Responsible { get; set; }
+        public static string Status { get; set; } 
+        public static string Priority { get; set; }
     }
 }
