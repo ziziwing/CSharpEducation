@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ProjectManager
 {
@@ -82,7 +83,7 @@ namespace ProjectManager
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public void taksById(int id)
+        public void TaksById(int id)
         {
             connection.Open();
 
@@ -96,11 +97,43 @@ namespace ProjectManager
                     Task.Name = tasks.GetValue(1).ToString();
                     Task.Status = tasks.GetValue(2).ToString();
                     Task.Priority = tasks.GetValue(3).ToString();
-                    Task.Responsible = new Responsible(tasks.GetValue(4).ToString());
+                    Task.Responsible = tasks.GetValue(4).ToString();
                     Task.Deadline = (int)tasks.GetValue(5);
                     Task.Description = tasks.GetValue(6).ToString();
                 }       
             }
+            connection.Close();
+        }
+
+        public void SaveTask(bool needNew)
+        {
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+
+            string request;
+            if (needNew)
+            {
+                request = "INSERT INTO `taskDB` (name, status, deadline, priority, responsible, description) " +
+                "VALUES (@name, @status, @deadline, @priority, @responsible, @description)";
+            }
+            else
+            {
+                request = $"UPDATE `taskDB` SET `name` = @name, `status` = @status, `priority` = @priority," +
+                    $" `responsible` = @responsible, `description` = @description WHERE `taskDB`.`id` = @id";
+            }
+            MySqlCommand command = new MySqlCommand(request, getConnection());
+
+            command.Parameters.Add("@id", MySqlDbType.VarChar).Value = Task.Id;
+            command.Parameters.Add("@name", MySqlDbType.VarChar).Value = Task.Name;
+            command.Parameters.Add("@description", MySqlDbType.VarChar).Value = Task.Description;
+            command.Parameters.Add("@status", MySqlDbType.VarChar).Value = Task.Status;
+            command.Parameters.Add("@deadline", MySqlDbType.Int32).Value = Task.Deadline;
+            command.Parameters.Add("@priority", MySqlDbType.VarChar).Value = Task.Priority;
+            command.Parameters.Add("@responsible", MySqlDbType.VarChar).Value = Task.Responsible;
+
+            connection.Open();
+
+            command.ExecuteNonQuery();
+
             connection.Close();
         }
     }

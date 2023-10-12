@@ -14,6 +14,7 @@ namespace ProjectManager
     public partial class MainForm : Form
     {
         #region Создание формы
+
         /// <summary>
         /// Инициализирует основную форму.
         /// </summary>
@@ -22,6 +23,7 @@ namespace ProjectManager
             InitializeComponent();
             ViewTasks();
         }
+
         /// <summary>
         /// Добавляет контрол на основную форму.
         /// </summary>
@@ -37,6 +39,7 @@ namespace ProjectManager
         #endregion
 
         #region Служебные методы
+
         /// <summary>
         /// Показывает все созданные задачи на форме в виде плитки.
         /// </summary>
@@ -89,6 +92,7 @@ namespace ProjectManager
             ResponcibleForm responcibleForm = new ResponcibleForm();
             responcibleForm.Show();
         }
+
         #endregion
     }
 }

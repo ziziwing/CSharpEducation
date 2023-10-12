@@ -30,15 +30,6 @@ namespace ProjectManager
         internal Point lastPoint;
 
         /// <summary>
-        /// Событие: зажатие кнопки мыши.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void buttonClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-        /// <summary>
         /// Событие: движение мышью.
         /// </summary>
         /// <param name="sender"></param>
@@ -63,6 +54,16 @@ namespace ProjectManager
         #endregion
 
         /// <summary>
+        /// Событие: закрыть форму.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        /// <summary>
         /// Событие: нажатие кнопки Сохранить.
         /// </summary>
         /// <param name="sender"></param>
@@ -71,27 +72,14 @@ namespace ProjectManager
         {
             DataBase db = new DataBase();
 
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
+            Task.Name = textName.Text;
+            Task.Description = textDescription.Text;
+            Task.Status = boxStatus.SelectedItem.ToString();
+            Task.Deadline = Int32.Parse(textDeadline.Text);
+            Task.Priority = boxPriority.Text;
+            Task.Responsible = boxResponsible.Text;
 
-            string request = "INSERT INTO `taskDB` (name, description, status, deadline, priority, responsible) " +
-                "VALUES (@name, @description, @status, @deadline, @priority, @responsible)";
-
-            MySqlCommand command = new MySqlCommand(request, db.getConnection());
-
-            DateTime timeNow = DateTime.Now;
-
-            command.Parameters.Add("@name", MySqlDbType.VarChar).Value = textName.Text;
-            command.Parameters.Add("@description", MySqlDbType.VarChar).Value = textDescription.Text;
-            command.Parameters.Add("@status", MySqlDbType.VarChar).Value = boxStatus.SelectedItem;
-            command.Parameters.Add("@deadline", MySqlDbType.Int32).Value = Int32.Parse(textDeadline.Text);
-            command.Parameters.Add("@priority", MySqlDbType.VarChar).Value = boxPriority.Text;
-            command.Parameters.Add("@responsible", MySqlDbType.VarChar).Value = boxResponsible.Text;
-
-            db.openConnection();
-
-            if (command.ExecuteNonQuery() == 1)
-
-            db.closeConnection();
+            db.SaveTask(!this.labelTask.Text.Equals(Task.Id.ToString()));
 
             this.Close();
         }
@@ -109,18 +97,9 @@ namespace ProjectManager
             }
         }
 
-        /// <summary>
-        /// Событие: обновляем в основной формы плитки с задачами.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void TaskForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            MainForm mainForm = new MainForm();
-            mainForm.ViewTasks();
-        }
-
         #endregion
+
+        #region Служебные методы
 
         /// <summary>
         /// Открыть форму задачи из плитки.
@@ -129,7 +108,7 @@ namespace ProjectManager
         internal void ViewTaskInfoByTile(int taskID)
         {
             DataBase db = new DataBase();
-            db.taksById(taskID);
+            db.TaksById(taskID);
 
             TaskForm taskForm = new TaskForm();
 
@@ -141,7 +120,7 @@ namespace ProjectManager
             taskForm.boxStatus.SelectedIndex = indexStatus;
             var indexPriority = taskForm.boxPriority.FindString(Task.Priority);
             taskForm.boxPriority.SelectedIndex = indexPriority;
-            var indexResponsible = taskForm.boxResponsible.FindString(Task.Responsible.Name);
+            var indexResponsible = taskForm.boxResponsible.FindString(Task.Responsible);
             taskForm.boxResponsible.SelectedIndex = indexResponsible;
 
             taskForm.Show();
@@ -165,5 +144,7 @@ namespace ProjectManager
 
             db.closeConnection();
         }
+
+        #endregion
     }
 }

@@ -14,7 +14,7 @@ namespace ProjectManager
         static public string Name { get; set; }
         static public string Description { get; set; }
         static public int Deadline { get; set; }
-        static public Responsible Responsible { get; set; }
+        static public string Responsible { get; set; }
         static public string Status { get; set; } 
         static public string Priority { get; set; }
     }

@@ -102,12 +102,13 @@ namespace ProjectManager
             taskForm.ViewTaskInfoByTile((Convert.ToInt32(labelId.Text)));
         }
 
-        #endregion
-
         private void tableTile_Click(object sender, EventArgs e)
         {
             TaskForm taskForm = new TaskForm();
             taskForm.ViewTaskInfoByTile((Convert.ToInt32(labelId.Text)));
         }
+
+        #endregion
+
     }
 }
