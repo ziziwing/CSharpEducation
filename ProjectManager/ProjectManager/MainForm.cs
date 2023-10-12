@@ -57,7 +57,8 @@ namespace ProjectManager
                     Name = data.GetValue(1).ToString(),
                     Parent = flowPanel
                 };
-
+                
+                tileTask.setId(data.GetString("id"));
                 tileTask.setName(data.GetString("name"));
                 tileTask.setStatus(data.GetString("status"));
                 tileTask.setPriority(data.GetString("priority"));

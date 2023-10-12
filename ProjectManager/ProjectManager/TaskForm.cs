@@ -90,14 +90,10 @@ namespace ProjectManager
             db.openConnection();
 
             if (command.ExecuteNonQuery() == 1)
-                MessageBox.Show("Добавлен");
 
             db.closeConnection();
 
             this.Close();
-            
-            MainForm mainForm = new MainForm();
-            mainForm.ViewTasks();
         }
         /// <summary>
         /// Событие: в поле Трудозатраты можно ввести только цифры, либо backspace.
@@ -112,6 +108,18 @@ namespace ProjectManager
                 e.Handled = true;
             }
         }
+
+        /// <summary>
+        /// Событие: обновляем в основной формы плитки с задачами.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TaskForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            MainForm mainForm = new MainForm();
+            mainForm.ViewTasks();
+        }
+
         #endregion
 
         /// <summary>
@@ -121,9 +129,21 @@ namespace ProjectManager
         internal void ViewTaskInfoByTile(int taskID)
         {
             DataBase db = new DataBase();
-            var taskInfo = db.taksById(taskID);
+            db.taksById(taskID);
 
             TaskForm taskForm = new TaskForm();
+
+            taskForm.labelTask.Text = Task.Id.ToString();
+            taskForm.textName.Text = Task.Name;
+            taskForm.textDescription.Text = Task.Description;
+            taskForm.textDeadline.Text = Task.Deadline.ToString();
+            var indexStatus = taskForm.boxStatus.FindString(Task.Status);
+            taskForm.boxStatus.SelectedIndex = indexStatus;
+            var indexPriority = taskForm.boxPriority.FindString(Task.Priority);
+            taskForm.boxPriority.SelectedIndex = indexPriority;
+            var indexResponsible = taskForm.boxResponsible.FindString(Task.Responsible.Name);
+            taskForm.boxResponsible.SelectedIndex = indexResponsible;
+
             taskForm.Show();
         }
 

@@ -69,30 +69,39 @@ namespace ProjectManager
             return command.ExecuteReader();
          }
 
+        public MySqlDataReader GetTaskById(int id)
+        {
+            MySqlCommand command = new MySqlCommand("SELECT * FROM `taskDB` WHERE id = @id", connection);
+            command.Parameters.Add("@id", MySqlDbType.VarChar).Value = id;
+
+            return command.ExecuteReader();
+        }
+
         /// <summary>
         /// Получить информацию о задаче по Id.
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public Task taksById(int id)
+        public void taksById(int id)
         {
-            Task taskInfo = new Task();
+            connection.Open();
+
+            var tasks = GetTaskById(id);
             
-            var tasks = GetAllTasks();
             while (tasks.Read())
             {
                 if (id == (int)tasks.GetValue(0))
                 {
-                    taskInfo.Id = id;
-                    taskInfo.Name = tasks.GetValue(1).ToString();
-                    taskInfo.Status = taskInfo.GetStatus(tasks.GetValue(2).ToString());
-                    taskInfo.Priority = taskInfo.GetPriority(tasks.GetValue(3).ToString());
-                    taskInfo.Responsible = new Responsible(tasks.GetValue(4).ToString());
-                    taskInfo.Deadline = (int)tasks.GetValue(5);
-                    taskInfo.Description = tasks.GetValue(6).ToString();
+                    Task.Id = id;
+                    Task.Name = tasks.GetValue(1).ToString();
+                    Task.Status = tasks.GetValue(2).ToString();
+                    Task.Priority = tasks.GetValue(3).ToString();
+                    Task.Responsible = new Responsible(tasks.GetValue(4).ToString());
+                    Task.Deadline = (int)tasks.GetValue(5);
+                    Task.Description = tasks.GetValue(6).ToString();
                 }       
             }
-            return taskInfo;
+            connection.Close();
         }
     }
 }

@@ -39,12 +39,15 @@
             this.tableResponsible = new System.Windows.Forms.TableLayoutPanel();
             this.labelResponsible = new System.Windows.Forms.Label();
             this.comboResponsible = new System.Windows.Forms.ComboBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.labelName = new System.Windows.Forms.Label();
+            this.labelId = new System.Windows.Forms.Label();
             this.dataBaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableTile.SuspendLayout();
             this.tableStatus.SuspendLayout();
             this.tablePriority.SuspendLayout();
             this.tableResponsible.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataBaseBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,7 +58,7 @@
             this.tableTile.Controls.Add(this.tableStatus, 0, 1);
             this.tableTile.Controls.Add(this.tablePriority, 0, 2);
             this.tableTile.Controls.Add(this.tableResponsible, 0, 3);
-            this.tableTile.Controls.Add(this.labelName, 0, 0);
+            this.tableTile.Controls.Add(this.tableLayoutPanel1, 0, 0);
             this.tableTile.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableTile.Location = new System.Drawing.Point(0, 0);
             this.tableTile.Name = "tableTile";
@@ -66,7 +69,7 @@
             this.tableTile.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32F));
             this.tableTile.Size = new System.Drawing.Size(233, 171);
             this.tableTile.TabIndex = 0;
-            this.tableTile.Click += new System.EventHandler(this.tableTile_Click);
+            this.tableTile.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tableTile_MouseClick);
             // 
             // tableStatus
             // 
@@ -82,6 +85,7 @@
             this.tableStatus.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableStatus.Size = new System.Drawing.Size(227, 34);
             this.tableStatus.TabIndex = 1;
+            this.tableStatus.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tableTile_MouseClick);
             // 
             // labelStatus
             // 
@@ -123,6 +127,7 @@
             this.tablePriority.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tablePriority.Size = new System.Drawing.Size(227, 33);
             this.tablePriority.TabIndex = 2;
+            this.tablePriority.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tableTile_MouseClick);
             // 
             // labelPriority
             // 
@@ -164,6 +169,7 @@
             this.tableResponsible.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableResponsible.Size = new System.Drawing.Size(227, 50);
             this.tableResponsible.TabIndex = 3;
+            this.tableResponsible.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tableTile_MouseClick);
             // 
             // labelResponsible
             // 
@@ -185,16 +191,43 @@
             this.comboResponsible.Size = new System.Drawing.Size(221, 21);
             this.comboResponsible.TabIndex = 1;
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82.14286F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.85714F));
+            this.tableLayoutPanel1.Controls.Add(this.labelName, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.labelId, 1, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(224, 30);
+            this.tableLayoutPanel1.TabIndex = 4;
+            this.tableLayoutPanel1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tableTile_MouseClick);
+            // 
             // labelName
             // 
             this.labelName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelName.AutoSize = true;
             this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelName.Location = new System.Drawing.Point(3, 8);
+            this.labelName.Location = new System.Drawing.Point(3, 5);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(93, 20);
-            this.labelName.TabIndex = 0;
+            this.labelName.TabIndex = 1;
             this.labelName.Text = "labelName";
+            // 
+            // labelId
+            // 
+            this.labelId.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelId.AutoSize = true;
+            this.labelId.ForeColor = System.Drawing.Color.DarkGray;
+            this.labelId.Location = new System.Drawing.Point(206, 0);
+            this.labelId.Name = "labelId";
+            this.labelId.Size = new System.Drawing.Size(15, 13);
+            this.labelId.TabIndex = 2;
+            this.labelId.Text = "id";
             // 
             // dataBaseBindingSource
             // 
@@ -208,14 +241,17 @@
             this.Controls.Add(this.tableTile);
             this.Name = "TileTask";
             this.Size = new System.Drawing.Size(233, 171);
+            this.Click += new System.EventHandler(this.tableTile_Click);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tableTile_MouseClick);
             this.tableTile.ResumeLayout(false);
-            this.tableTile.PerformLayout();
             this.tableStatus.ResumeLayout(false);
             this.tableStatus.PerformLayout();
             this.tablePriority.ResumeLayout(false);
             this.tablePriority.PerformLayout();
             this.tableResponsible.ResumeLayout(false);
             this.tableResponsible.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataBaseBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -224,7 +260,6 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableTile;
-        private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.TableLayoutPanel tableStatus;
         private System.Windows.Forms.Label labelStatus;
         private System.Windows.Forms.ComboBox comboStatus;
@@ -235,5 +270,8 @@
         private System.Windows.Forms.Label labelResponsible;
         private System.Windows.Forms.ComboBox comboResponsible;
         private System.Windows.Forms.BindingSource dataBaseBindingSource;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label labelName;
+        private System.Windows.Forms.Label labelId;
     }
 }

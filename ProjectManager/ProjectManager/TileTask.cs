@@ -22,15 +22,27 @@ namespace ProjectManager
             InitializeComponent();
             FillResponsible();
         }
+
         #region Инициализация полей формы.
+
         /// <summary>
-        /// Устанавливает в плитку Задачи имя.
+        /// Устанавливает в плитку Id задачи.
+        /// </summary>
+        /// <param name="id"></param>
+        public void setId(string id)
+        {
+            labelId.Text = id;
+        }
+
+        /// <summary>
+        /// Устанавливает в плитку имя задачи .
         /// </summary>
         /// <param name="name"></param>
         public void setName(string name)
         {
             labelName.Text = name;
         }
+
         /// <summary>
         /// Выбирает и устанавливает из списка ответственного.
         /// </summary>
@@ -40,6 +52,7 @@ namespace ProjectManager
             var index = comboResponsible.FindString(name);
             comboResponsible.SelectedIndex = index;
         }
+
         /// <summary>
         /// Выбирает и устанавливает статус из списка статусов.
         /// </summary>
@@ -49,6 +62,7 @@ namespace ProjectManager
             var index = comboStatus.FindString(status);
             comboStatus.SelectedIndex = index;
         }
+
         /// <summary>
         /// Выбирает и устанавливает приоритет из списка приоритетов.
         /// </summary>
@@ -59,6 +73,9 @@ namespace ProjectManager
             comboPriority.SelectedIndex = index;
         }
 
+        /// <summary>
+        /// Заполнить поле выбора ответственного значениями из СУБД.
+        /// </summary>
         private void FillResponsible()
         {
             DataBase db = new DataBase();
@@ -74,14 +91,23 @@ namespace ProjectManager
 
             db.closeConnection();
         }
+
         #endregion
 
         #region Событие формы.
+
+        private void tableTile_MouseClick(object sender, MouseEventArgs e)
+        {
+            TaskForm taskForm = new TaskForm();
+            taskForm.ViewTaskInfoByTile((Convert.ToInt32(labelId.Text)));
+        }
+
+        #endregion
+
         private void tableTile_Click(object sender, EventArgs e)
         {
             TaskForm taskForm = new TaskForm();
-            taskForm.ViewTaskInfoByTile((int)Tag);
+            taskForm.ViewTaskInfoByTile((Convert.ToInt32(labelId.Text)));
         }
-        #endregion
     }
 }
