@@ -74,9 +74,9 @@
             this.panelTask.Controls.Add(this.buttonSave);
             this.panelTask.Controls.Add(this.button3);
             this.panelTask.Controls.Add(this.button1);
-            this.panelTask.Location = new System.Drawing.Point(-2, 0);
+            this.panelTask.Location = new System.Drawing.Point(-2, 12);
             this.panelTask.Name = "panelTask";
-            this.panelTask.Size = new System.Drawing.Size(381, 361);
+            this.panelTask.Size = new System.Drawing.Size(381, 349);
             this.panelTask.TabIndex = 0;
             this.panelTask.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTask_MouseDown);
             this.panelTask.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelTask_MouseMove);
@@ -119,7 +119,7 @@
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(17, 248);
+            this.label7.Location = new System.Drawing.Point(17, 242);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(86, 13);
             this.label7.TabIndex = 9;
@@ -155,7 +155,7 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(17, 168);
+            this.label4.Location = new System.Drawing.Point(17, 162);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 13);
             this.label4.TabIndex = 7;

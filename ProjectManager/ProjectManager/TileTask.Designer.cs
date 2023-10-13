@@ -101,6 +101,7 @@
             // comboStatus
             // 
             this.comboStatus.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.comboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboStatus.FormattingEnabled = true;
             this.comboStatus.Items.AddRange(new object[] {
@@ -143,6 +144,7 @@
             // comboPriority
             // 
             this.comboPriority.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.comboPriority.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboPriority.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboPriority.FormattingEnabled = true;
             this.comboPriority.Items.AddRange(new object[] {
@@ -185,6 +187,7 @@
             // comboResponsible
             // 
             this.comboResponsible.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboResponsible.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboResponsible.FormattingEnabled = true;
             this.comboResponsible.Location = new System.Drawing.Point(3, 23);
             this.comboResponsible.Name = "comboResponsible";

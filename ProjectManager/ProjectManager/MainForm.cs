@@ -13,6 +13,8 @@ namespace ProjectManager
 {
     public partial class MainForm : Form
     {
+        static List<Task> listTasks = new List<Task>();
+
         #region Создание формы
 
         /// <summary>
@@ -45,33 +47,67 @@ namespace ProjectManager
         /// </summary>
         public void ViewTasks()
         {
-            flowPanel.Controls.Clear();
-
             DataBase db = new DataBase();
+
             db.openConnection();   
 
             var data = db.GetAllTasks();
+            
+            AddingToList(data);
 
-            while (data.Read())
+            db.closeConnection();
+        }
+
+        public void RefreshTasks()
+        {
+            flowPanel.Controls.Clear();
+
+            foreach (Task task in listTasks)
             {
                 TileTask tileTask = new TileTask()
                 {
-                    Tag = data.GetValue(0).ToString(),
-                    Name = data.GetValue(1).ToString(),
+                    Tag = task.Id,
+                    Name = task.Name,
                     Parent = flowPanel
                 };
-                
-                tileTask.setId(data.GetString("id"));
-                tileTask.setName(data.GetString("name"));
-                tileTask.setStatus(data.GetString("status"));
-                tileTask.setPriority(data.GetString("priority"));
-                tileTask.setResponcible(data.GetString("responsible"));
+
+                tileTask.setId(task.Id.ToString());
+                tileTask.setName(task.Name);
+                tileTask.setStatus(task.Status);
+                tileTask.setPriority(task.Priority);
+                tileTask.setResponcible(task.Responsible);
             }
-            db.closeConnection();
         }
+
+        /// <summary>
+        /// Добавляем задачи в структуру для уменьшения обращений к БД.
+        /// </summary>
+        /// <param name="data"></param>
+        private void AddingToList(MySqlDataReader data)
+        {            
+            while (data.Read())
+            {
+                Task task = new Task();
+
+                task.Id = (int)data.GetValue(0);
+                task.Name = data.GetString("name");
+                task.Status = data.GetString("status");
+                task.Deadline = (int)data.GetValue(5);
+                task.Priority = data.GetString("priority");
+                task.Responsible = data.GetString("responsible");
+                task.Description = data.GetString("description");
+
+                listTasks.Add(task);
+            }
+            data.Close();
+
+            RefreshTasks();
+        }
+
         #endregion
 
         #region Событие формы
+
         /// <summary>
         /// Событие: создание новой задачи.
         /// </summary>
@@ -79,8 +115,9 @@ namespace ProjectManager
         /// <param name="e"></param>
         private void Newtask_Click(object sender, EventArgs e)
         {
-            TaskForm openForm = new TaskForm();
-            openForm.Show();
+            TaskForm taskForm = new TaskForm();
+            taskForm.FormClosed += MainForm_Load;
+            taskForm.Show();
         }
         /// <summary>
         /// Cобытие: создание нового ответственного.
@@ -95,9 +132,17 @@ namespace ProjectManager
 
         #endregion
 
-        public FlowLayoutPanel GetFlowPanel()
+        private void MainForm_Load(object sender, EventArgs e)
         {
-            return flowPanel;
+            DataBase db = new DataBase();
+            db.openConnection();
+
+            var data = db.GetLastTask();
+
+            AddingToList(data);
+
+            db.closeConnection();
+
         }
     }
 }

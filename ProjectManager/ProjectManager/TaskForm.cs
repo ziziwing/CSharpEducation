@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProjectManager;
 
 namespace ProjectManager
 {
@@ -71,14 +72,16 @@ namespace ProjectManager
         {
             DataBase db = new DataBase();
 
-            Task.Name = textName.Text;
-            Task.Description = textDescription.Text;
-            Task.Status = boxStatus.SelectedItem.ToString();
-            Task.Deadline = Int32.Parse(textDeadline.Text);
-            Task.Priority = boxPriority.Text;
-            Task.Responsible = boxResponsible.Text;
+            Task task = new Task();
 
-            db.SaveTask(!this.labelTask.Text.Equals(Task.Id.ToString()));
+            task.Name = textName.Text;
+            task.Description = textDescription.Text;
+            task.Status = boxStatus.SelectedItem.ToString();
+            task.Deadline = Int32.Parse(textDeadline.Text);
+            task.Priority = boxPriority.Text;
+            task.Responsible = boxResponsible.Text;
+// получить последний ID + 1 и сразу в таску впихнуть.
+            db.SaveTask(!this.labelTask.Text.Equals(task.Id.ToString()), task);
 
             this.Close();
         }
@@ -107,19 +110,19 @@ namespace ProjectManager
         internal void ViewTaskInfoByTile(int taskID)
         {
             DataBase db = new DataBase();
-            db.TaksById(taskID);
+            var task = db.TaksById(taskID);
 
             TaskForm taskForm = new TaskForm();
 
-            taskForm.labelTask.Text = Task.Id.ToString();
-            taskForm.textName.Text = Task.Name;
-            taskForm.textDescription.Text = Task.Description;
-            taskForm.textDeadline.Text = Task.Deadline.ToString();
-            var indexStatus = taskForm.boxStatus.FindString(Task.Status);
+            taskForm.labelTask.Text = task.Id.ToString();
+            taskForm.textName.Text = task.Name;
+            taskForm.textDescription.Text = task.Description;
+            taskForm.textDeadline.Text = task.Deadline.ToString();
+            var indexStatus = taskForm.boxStatus.FindString(task.Status);
             taskForm.boxStatus.SelectedIndex = indexStatus;
-            var indexPriority = taskForm.boxPriority.FindString(Task.Priority);
+            var indexPriority = taskForm.boxPriority.FindString(task.Priority);
             taskForm.boxPriority.SelectedIndex = indexPriority;
-            var indexResponsible = taskForm.boxResponsible.FindString(Task.Responsible);
+            var indexResponsible = taskForm.boxResponsible.FindString(task.Responsible);
             taskForm.boxResponsible.SelectedIndex = indexResponsible;
 
             taskForm.Show();
@@ -145,5 +148,6 @@ namespace ProjectManager
         }
 
         #endregion
+
     }
 }
