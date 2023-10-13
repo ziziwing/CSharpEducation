@@ -83,6 +83,7 @@
             // 
             // boxResponsible
             // 
+            this.boxResponsible.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.boxResponsible.FormattingEnabled = true;
             this.boxResponsible.Location = new System.Drawing.Point(106, 245);
             this.boxResponsible.Name = "boxResponsible";
@@ -91,6 +92,7 @@
             // 
             // boxPriority
             // 
+            this.boxPriority.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.boxPriority.FormattingEnabled = true;
             this.boxPriority.Items.AddRange(new object[] {
             "Критичный",
@@ -104,6 +106,8 @@
             // 
             // boxStatus
             // 
+            this.boxStatus.BackColor = System.Drawing.SystemColors.Window;
+            this.boxStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.boxStatus.FormattingEnabled = true;
             this.boxStatus.Items.AddRange(new object[] {
             "Ожидание",
@@ -189,7 +193,9 @@
             // 
             // textName
             // 
+            this.textName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textName.Location = new System.Drawing.Point(106, 72);
+            this.textName.Multiline = true;
             this.textName.Name = "textName";
             this.textName.Size = new System.Drawing.Size(257, 20);
             this.textName.TabIndex = 2;

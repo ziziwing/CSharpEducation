@@ -80,10 +80,14 @@ namespace ProjectManager
             task.Deadline = Int32.Parse(textDeadline.Text);
             task.Priority = boxPriority.Text;
             task.Responsible = boxResponsible.Text;
-// получить последний ID + 1 и сразу в таску впихнуть.
-            db.SaveTask(!this.labelTask.Text.Equals(task.Id.ToString()), task);
+            var lastListTask = ListTask.AllTask.LastOrDefault();
+            task.Id = lastListTask.Id + 1;
+
+            ListTask.AllTask.Add(task);
 
             this.Close();
+
+            db.SaveTask(!this.labelTask.Text.Equals(task.Id.ToString()), task);
         }
         /// <summary>
         /// Событие: в поле Трудозатраты можно ввести только цифры, либо backspace.
@@ -109,8 +113,7 @@ namespace ProjectManager
         /// <param name="taskID"></param>
         internal void ViewTaskInfoByTile(int taskID)
         {
-            DataBase db = new DataBase();
-            var task = db.TaksById(taskID);
+            var task = ListTask.AllTask.Where(t => t.Id == taskID).FirstOrDefault();
 
             TaskForm taskForm = new TaskForm();
 

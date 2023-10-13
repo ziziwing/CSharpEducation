@@ -13,8 +13,6 @@ namespace ProjectManager
 {
     public partial class MainForm : Form
     {
-        static List<Task> listTasks = new List<Task>();
-
         #region Создание формы
 
         /// <summary>
@@ -62,7 +60,7 @@ namespace ProjectManager
         {
             flowPanel.Controls.Clear();
 
-            foreach (Task task in listTasks)
+            foreach (Task task in ListTask.AllTask)
             {
                 TileTask tileTask = new TileTask()
                 {
@@ -84,7 +82,9 @@ namespace ProjectManager
         /// </summary>
         /// <param name="data"></param>
         private void AddingToList(MySqlDataReader data)
-        {            
+        {
+            ListTask.AllTask = new List<Task>();
+
             while (data.Read())
             {
                 Task task = new Task();
@@ -97,7 +97,7 @@ namespace ProjectManager
                 task.Responsible = data.GetString("responsible");
                 task.Description = data.GetString("description");
 
-                listTasks.Add(task);
+                ListTask.AllTask.Add(task);
             }
             data.Close();
 
@@ -134,15 +134,7 @@ namespace ProjectManager
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            DataBase db = new DataBase();
-            db.openConnection();
-
-            var data = db.GetLastTask();
-
-            AddingToList(data);
-
-            db.closeConnection();
-
+            RefreshTasks();
         }
     }
 }
